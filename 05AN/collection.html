@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Our Collections - 05AN</title>
+
+    <link rel="stylesheet" href="collection.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&family=Inter:wght@300;400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="collection.html">COLLECTIONS</a>
+                <a href="bestsellers.html">BEST SELLERS</a>
+            </div>
+
+            <div class="title">
+                <h1>05AN</h1>
+            </div>
+
+            <div class="nav-right">
+                <a href="index.html">HOME</a>
+                <a href="aboutus.html">ABOUT US</a>
+                <a href="contact.html">CONTACTS</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="collections-header">
+        <h1>Our Collections</h1>
+        <p>A curated selection of fragrances that define presence, memory, and emotion</p>
+    </div>
+
+    <section class="split">
+
+        <div class="side men">
+
+            <h2 class="section-title">
+                <a href="mens.html">MEN COLLECTION</a>
+            </h2>
+
+            <div class="slider">
+                <img id="menImg" class="slide-img" src="images/tobacco vanille.png">
+                <div class="name-box" id="menName">Tobacco Vanille</div>
+            </div>
+        </div>
+
+        <div class="side women">
+
+            <h2 class="section-title">
+                <a href="womens.html">WOMEN COLLECTION</a>
+            </h2>
+
+            <div class="slider">
+                <img id="womenImg" class="slide-img" src="images/delina.png">
+                <div class="name-box" id="womenName">Delina Exclusif</div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        function go(page) {
+            window.location.href = page;
+        }
+
+        const menImages = [
+            "images/tobacco vanille.png",
+            "images/Imagination von Louis Vuitton.png",
+            "images/REPLICA Jazz Club.png",
+            "images/LaNuitdelHomme.png",
+            "images/LeBeauParadiseGarden.png"
+        ];
+
+        const menNames = [
+            "Tobacco Vanille",
+            "Imagination",
+            "Jazz Club",
+            "La Nuit De L'Homme ",
+            "Le Beau Paradise Garden"
+        ];
+
+        const womenImages = [
+            "images/delina.png",
+            "images/Baccarat Rouge 540.png",
+            "images/MontaleDarkVanilla.png",
+            "images/VersaceCrystalNoir.png",
+            "images/BYREDOMojaveGhost.png"
+        ];
+
+        const womenNames = [
+            "Delina Exclusif",
+            "Baccarat Rouge 540",
+            "Dark Vanilla",
+            "Crystal Noir",
+            "Mojave Ghost"
+        ];
+
+        function startSlider(imgEl, nameEl, images, names) {
+            let i = 0;
+
+            setInterval(() => {
+                imgEl.style.opacity = 0;
+                nameEl.style.opacity = 0;
+
+                setTimeout(() => {
+                    i = (i + 1) % images.length;
+                    imgEl.src = images[i];
+                    nameEl.textContent = names[i];
+                    imgEl.style.opacity = 1;
+                    nameEl.style.opacity = 1;
+                }, 500);
+
+            }, 3500);
+        }
+
+        startSlider(
+            document.getElementById("menImg"),
+            document.getElementById("menName"),
+            menImages,
+            menNames
+        );
+
+        startSlider(
+            document.getElementById("womenImg"),
+            document.getElementById("womenName"),
+            womenImages,
+            womenNames
+        );
+    </script>
+
+    <footer class="footer">
+        © 2026 05AN by BOUMAHDI Anass et BARAKAT Kawtar
+    </footer>
+
+</body>
+
+</html>
