@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Product - 05AN</title>
+
+    <link rel="stylesheet" href="product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="collection.html">COLLECTIONS</a>
+                <a href="bestsellers.html">BEST SELLERS</a>
+            </div>
+
+            <div class="title">
+                <h1>05AN</h1>
+            </div>
+
+            <div class="nav-right">
+                <a href="homepage.html">HOME</a>
+                <a href="aboutus.html">ABOUT US</a>
+                <a href="contact.html">CONTACTS</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="product-page">
+
+        <div class="product-image">
+            <div class="bg-blur"></div>
+            <img id="img">
+        </div>
+
+        <div class="product-info">
+            <h1 id="name"></h1>
+            <h2 id="price"></h2>
+
+            <p class="story" id="story"></p>
+
+            <h3>Notes</h3>
+            <ul id="notes"></ul>
+
+            <div class="qty">
+                <label>Quantity:</label>
+                <input type="number" id="qty" value="1" min="1">
+            </div>
+
+            <button onclick="goToCheckout()">Buy Now</button>
+        </div>
+
+    </div>
+
+    <div class="bottle-container" id="bottleContainer"></div>
+
+    <script>
+        const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+        if (!product) {
+            document.body.innerHTML =
+                "<h2 style='color:white;text-align:center;margin-top:50px'>No product selected</h2>";
+            throw new Error("No product selected");
+        }
+
+        document.getElementById("img").src = product.image;
+        document.getElementById("name").innerText = product.name;
+        document.getElementById("price").innerText = "$" + product.price;
+        document.getElementById("story").innerText = product.story;
+
+        const notesContainer = document.getElementById("notes");
+        notesContainer.innerHTML = "";
+
+        product.notes.forEach(note => {
+            const li = document.createElement("li");
+            li.textContent = note;
+            notesContainer.appendChild(li);
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            const img = document.getElementById("img");
+
+            let x = (window.innerWidth / 2 - e.clientX) / 80;
+            let y = (window.innerHeight / 2 - e.clientY) / 80;
+
+            img.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+        });
+
+        const bottleContainer = document.getElementById("bottleContainer");
+
+        function createBottles(count = 15) {
+
+            for (let i = 0; i < count; i++) {
+
+                const bottle = document.createElement("img");
+                bottle.src = product.image;
+                bottle.className = "bottle";
+
+                bottle.style.left = Math.random() * 100 + "vw";
+                bottle.style.top = Math.random() * 100 + "vh";
+
+                bottle.style.animationDuration = (4 + Math.random() * 6) + "s";
+                bottle.style.animationDelay = Math.random() * 5 + "s";
+
+                bottle.style.transform = `scale(${0.2 + Math.random()})`;
+
+                bottleContainer.appendChild(bottle);
+            }
+        }
+
+        createBottles();
+
+        function goToCheckout() {
+
+            const qty = Number(document.getElementById("qty").value);
+
+            const updatedProduct = {
+                ...product,
+                quantity: qty
+            };
+
+            localStorage.setItem("selectedProduct", JSON.stringify(updatedProduct));
+
+            window.location.href = "checkout.html";
+        }
+        
+    </script>
+
+    <footer class="footer">
+        © 2026 05AN by BOUMAHDI Anass et BARAKAT Kawtar
+    </footer>
+
+</body>
+
+</html>
