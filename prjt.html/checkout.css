@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #e0d5c0;
+    background-color: #0a0807;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+header {
+    width: 100%;
+}
+
+.navbar {
+    background-color: #0a0807;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 100px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    color: #e0d5c0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    background: #e0d5c0;
+    color: black;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.title h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 60px;
+    letter-spacing: -4px;
+    font-weight: 300;
+}
+
+.checkout-page {
+    padding: 60px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.checkout-page h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.checkout-box {
+    max-width: 800px;
+    margin: auto;
+
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+
+    border-radius: 25px;
+    padding: 35px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+    animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.checkout-product {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.checkout-product img {
+    width: 120px;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkout-form input {
+    padding: 14px;
+    border-radius: 10px;
+
+    background: rgba(224,213,192,0.08);
+    border: 1px solid rgba(224,213,192,0.2);
+    color: #e0d5c0;
+
+    transition: 0.3s;
+}
+
+.checkout-form input:focus {
+    transform: scale(1.02);
+    border-color: #e0d5c0;
+}
+
+.checkout-form button {
+    padding: 14px;
+    background: linear-gradient(45deg, #e0d5c0, #bda57c);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.checkout-form button:hover {
+    transform: scale(1.05);
+}
+
+.glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(224,213,192,0.15), transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(40px);
+    animation: glowMove 8s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+@keyframes glowMove {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-40%, -60%) scale(1.3); }
+}
+
+.bottle-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bottle {
+    position: absolute;
+    width: 70px;
+    opacity: 0.12;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%   { transform: translateY(0px) translateX(0px); }
+    50%  { transform: translateY(-60px) translateX(25px); }
+    100% { transform: translateY(0px) translateX(0px); }
+}
+.footer {
+    position: flex;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.541);
+    font-size: 14px;
+    backdrop-filter: blur(5px);
+}

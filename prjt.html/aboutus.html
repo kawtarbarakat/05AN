@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - 05AN</title>
+
+    <link rel="stylesheet" href="styleaboutus.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&family=Inter:wght@300;400&family=Montserrat:wght@300;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="collection.html">COLLECTIONS</a>
+                <a href="bestsellers.html">BEST SELLERS</a>
+            </div>
+
+            <div class="title">
+                <h1>05AN</h1>
+            </div>
+
+            <div class="nav-right">
+                <a href="index.html">HOME</a>
+                <a href="aboutus.html">ABOUT US</a>
+                <a href="contact.html">CONTACTS</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <div class="overlay">
+            <h1>ABOUT US</h1>
+            <p>More than fragrance
+                <br /> A signature.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-content">
+
+        <div class="about-block fade-in">
+            <div class="about-text">
+                <h2>OUR VISION</h2>
+                <p>
+                    05AN was created with one vision : to redefine how fragrance is experienced. What started as a
+                    shared passion for scents and the art of leaving a lasting impression became something deeper. To
+                    us, perfume is never just a liquid in a bottle, it’s a memory, an emotion and presence that lingers
+                    long after you’re gone. Every fragrance we offer, from timeless designers to rare niche creations,
+                    is carefully selected to evoke confidence, identity, and feeling. We don’t just sell perfumes, we
+                    create experiences meant to be remembered.
+                </p>
+            </div>
+
+            <div class="about-image">
+                <img src="images/kawtar.jpeg" alt="us">
+            </div>
+        </div>
+
+        <div class="about-block fade-in">
+            <div class="about-text">
+                <h2>OUR STORY</h2>
+                <p>
+                    Behind 05AN are two creators, Kawtar Barakat and Anass Boumahdi, first-year students in applied
+                    computer science, driven by ambition and a shared vision for the future. The name itself holds
+                    meaning: “05” reflects Kawtar’s birth date, while “AN” represents the initials of Anass. More
+                    than letters and numbers, it symbolizes a connection, two minds, one project. What began as a
+                    simple idea is now a platform where passion meets precision, bringing carefully curated scents
+                    to those who understand that fragrance is a form of identity.
+                </p>
+            </div>
+
+            <div class="about-image">
+                <img src="images/anass.jpeg" alt="us">
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.3 
+        });
+
+        faders.forEach(el => observer.observe(el));
+    </script>
+
+    <footer class="footer">
+        © 2026 05AN by BOUMAHDI Anass et BARAKAT Kawtar
+    </footer>
+
+</body>
+
+</html>
